@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- ============================================================
+    MÉTADONNÉES DE BASE
+    ============================================================ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ousmane Niang · Développeur Front-End | Portfolio & CV</title>
+    
+    <!-- ============================================================
+    MÉTADONNÉES SEO
+    ============================================================ -->
+    <meta name="description" content="Ousmane Niang - Développeur Front-End passionné. Expert en HTML5, CSS3, JavaScript, React et Laravel. Découvrez mon portfolio, mes projets et mon CV en ligne." />
+    <meta name="keywords" content="Ousmane Niang, développeur front-end, portfolio, CV, HTML, CSS, JavaScript, React, Laravel, Sénégal, Thiès, développeur web" />
+    <meta name="author" content="Ousmane Niang" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://votre-site.com" />
+    
+    <!-- ============================================================
+    OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
+    ============================================================ -->
+    <meta property="og:title" content="Ousmane Niang · Développeur Front-End" />
+    <meta property="og:description" content="Portfolio et CV de Ousmane Niang, développeur Front-End spécialisé en création d'interfaces modernes et responsives." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://votre-site.com" />
+    <meta property="og:image" content="https://votre-site.com/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Ousmane Niang - Portfolio" />
+    
+    <!-- ============================================================
+    TWITTER CARDS
+    ============================================================ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ousmane Niang · Développeur Front-End" />
+    <meta name="twitter:description" content="Portfolio et CV de Ousmane Niang, développeur Front-End." />
+    <meta name="twitter:image" content="https://votre-site.com/images/og-image.jpg" />
+    <meta name="twitter:creator" content="@ousmane" />
+    
+    <!-- ============================================================
+    FAVICON
+    ============================================================ -->
+    <!-- Favicon avec emoji (solution simple et universelle) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    
+    <!-- Favicon classique (si vous avez les fichiers) -->
+    <!-- 
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    -->
+    
+    <!-- ============================================================
+    GOOGLE FONTS & LIBRAIRIES
+    ============================================================ -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!-- QRCode.js (génération du QR) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <!-- ============================================================
+    FEUILLE DE STYLE PRINCIPALE
+    ============================================================ -->
+    <link rel="stylesheet" href="../css/style.css" />
+    
+    <!-- ============================================================
+    DONNÉES STRUCTURÉES JSON-LD (Pour le référencement avancé)
+    ============================================================ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ousmane Niang",
+        "jobTitle": "Développeur Front-End",
+        "url": "https://votre-site.com",
+        "email": "ousmane.niang2@univ-thies.sn",
+        "telephone": "+221776990766",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Guediawaye",
+            "addressRegion": "Dakar",
+            "addressCountry": "Sénégal"
+        },
+        "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "PHP", "Laravel", "Bootstrap", "MySQL"],
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        },
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Université Iba Der Thiam de Thiès"
+        }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ============================================================
+    NAVIGATION PRINCIPALE
+    ============================================================ -->
+    <nav class="navbar" id="navbar" aria-label="Navigation principale">
+        <div class="nav-container">
+            <div class="nav-logo" aria-hidden="true">
+                <span>ON</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">À propos</a></li>
+                <li><a href="#education" class="nav-link">Formation</a></li>
+                <li><a href="#skills" class="nav-link">Compétences</a></li>
+                <li><a href="#experience" class="nav-link">Expériences</a></li>
+                <li><a href="#projects" class="nav-link">Projets</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    CONTENEUR PRINCIPAL
+    ============================================================ -->
+    <main class="cv-container" id="cvContent">
+        
+        <!-- ============================================================
+        EN-TÊTE
+        ============================================================ -->
+        <header class="header" id="about">
+            <div class="header-grid">
+                <div class="header-left">
+                    <figure class="profile-photo">
+                        <img src="../images/profile.png" alt="Photo de profil de Ousmane Niang, développeur Front-End" loading="lazy" />
+                    </figure>
+                    <div class="header-info">
+                        <h1>Ousmane Niang</h1>
+                        <p class="subtitle">Développeur Front-End</p>
+                        <div class="badges">
+                            <span class="badge"><i class="fab fa-html5" aria-hidden="true"></i> HTML5</span>
+                            <span class="badge"><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS3</span>
+                            <span class="badge"><i class="fab fa-js" aria-hidden="true"></i> JavaScript</span>
+                            <span class="badge"><i class="fab fa-react" aria-hidden="true"></i> React</span>
+                            <span class="badge"><i class="fab fa-bootstrap" aria-hidden="true"></i> Bootstrap</span>
+                            <span class="badge"><i class="fas fa-database" aria-hidden="true"></i> Base de données</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <!-- QR Code -->
+                    <div class="qr-container" id="qrContainer">
+                        <div class="qr-wrapper" id="qrWrapper">
+                            <div id="qrcode"></div>
+                            <span class="qr-label">Scannez-moi !</span>
+                        </div>
+                        <button id="qrToggleBtn" class="qr-toggle-btn" aria-label="Afficher le QR Code">
+                            <i class="fas fa-qrcode" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <!-- Bouton thème -->
+                    <button id="themeToggle" class="theme-btn" aria-label="Basculer le thème">
+                        <i class="fas fa-moon" aria-hidden="true"></i>
+                        <span class="theme-label">Thème sombre</span>
+                    </button>
+                </div>
+            </div>
+
+            <address class="header-contact">
+                <a href="tel:+221776990766" class="contact-item">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
+                    <span>+221 776990766</span>
+                </a>
+                <a href="mailto:ousmane.niang2@univ-thies.sn" class="contact-item">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <span>ousmane.niang2@univ-thies.sn</span>
+                </a>
+                <a href="https://github.com/ousmane" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    <span>github.com/ousmane</span>
+                </a>
+                <a href="https://maps.app.goo.gl/fMxizb9Cpwqe7ghM7?g_st=awb" target="_blank" rel="noopener noreferrer" class="contact-item">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <span>Nimzat, Guediawaye, Sénégal</span>
+                </a>
+            </address>
+        </header>
+
+        <!-- ============================================================
+        GRILLE PRINCIPALE (2 colonnes)
+        ============================================================ -->
+        <div class="main-grid">
+            
+            <!-- ============================================================
+            COLONNE GAUCHE
+            ============================================================ -->
+            <aside class="left-column">
+                
+                <!-- Profil -->
+                <section class="section" id="about">
+                    <h3><i class="fas fa-user" aria-hidden="true"></i> Profil</h3>
+                    <p class="profile-text">
+                        Développeur Front-End passionné avec une solide formation en Technologies de l'Information. 
+                        Spécialisé dans la création d'interfaces utilisateur interactives, des applications web 
+                        et des projets de bout en bout.
+                    </p>
+                </section>
+
+                <!-- Formation -->
+                <section class="section" id="education">
+                    <h3><i class="fas fa-graduation-cap" aria-hidden="true"></i> Formation</h3>
+                    
+                    <div class="timeline-item">
+                        <time class="timeline-date" datetime="2023-09">En cours</time>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Licence Informatique</h4>
+                            <p class="timeline-subtitle">Université Iba Der Thiam de Thiès</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <time class="timeline-date" datetime="2022-09">2022 – 2023</time>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Baccalauréat Série S</h4>
+                            <p class="timeline-subtitle">MINKA</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <time class="timeline-date" datetime="2020-09">2018 – 2020</time>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">BFEM</h4>
+                            <p class="timeline-subtitle">CEM YEUMBEUL II</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <time class="timeline-date" datetime="2018-09">2015 – 2018</time>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">CFEE</h4>
+                            <p class="timeline-subtitle">CHERIF LIMAM AIDARA</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Langages maîtrisés -->
+                <section class="section">
+                    <h3><i class="fas fa-code" aria-hidden="true"></i> Langages maîtrisés</h3>
+                    <div class="lang-tags">
+                        <span class="lang-tag"><i class="fas fa-code" aria-hidden="true"></i> LANGUAGE C</span>
+                        <span class="lang-tag"><i class="fas fa-file-code" aria-hidden="true"></i> XML</span>
+                        <span class="lang-tag"><i class="fab fa-js" aria-hidden="true"></i> JavaScript</span>
+                        <span class="lang-tag"><i class="fab fa-php" aria-hidden="true"></i> PHP</span>
+                        <span class="lang-tag"><i class="fab fa-java" aria-hidden="true"></i> Java</span>
+                    </div>
+                </section>
+
+                <!-- Compétences -->
+                <section class="section" id="skills">
+                    <h3><i class="fas fa-tools" aria-hidden="true"></i> Compétences</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span>HTML5</span>
+                            <div class="skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>CSS3</span>
+                            <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>JavaScript</span>
+                            <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Java</span>
+                            <div class="skill-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Bootstrap</span>
+                            <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Base de données</span>
+                            <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Centres d'intérêt -->
+                <section class="section">
+                    <h3><i class="fas fa-heart" aria-hidden="true"></i> Centres d'intérêt</h3>
+                    <div class="interests">
+                        <a href="https://github.com/ousmane?tab=repositories" target="_blank" rel="noopener noreferrer" class="interest-tag" title="Voir mes projets">
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i> Programmation
+                        </a>
+                        <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" class="interest-tag" title="Inspirations design">
+                            <i class="fas fa-paint-brush" aria-hidden="true"></i> Design Web
+                        </a>
+                        <a href="https://www.marmiton.org/" target="_blank" rel="noopener noreferrer" class="interest-tag" title="Recettes de cuisine">
+                            <i class="fas fa-utensils" aria-hidden="true"></i> Cuisine
+                        </a>
+                        <a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer" class="interest-tag" title="Apprendre en ligne">
+                            <i class="fas fa-book-open" aria-hidden="true"></i> Apprentissage
+                        </a>
+                        <a href="https://www.lequipe.fr/" target="_blank" rel="noopener noreferrer" class="interest-tag" title="Actualité football">
+                            <i class="fas fa-futbol" aria-hidden="true"></i> Football
+                        </a>
+                        <a href="https://www.allocine.fr/" target="_blank" rel="noopener noreferrer" class="interest-tag" title="Derniers films">
+                            <i class="fas fa-film" aria-hidden="true"></i> Cinéma
+                        </a>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- ============================================================
+            COLONNE DROITE
+            ============================================================ -->
+            <section class="right-column">
+                
+                <!-- Expériences Professionnelles -->
+                <section class="section" id="experience">
+                    <h3><i class="fas fa-briefcase" aria-hidden="true"></i> Expériences Professionnelles</h3>
+                    
+                    <div class="timeline-item">
+                        <time class="timeline-date">10-2023 – 11-2023</time>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Développeur Front-End</h4>
+                            <p class="timeline-subtitle">CODERGIFT · Stage virtuel</p>
+                            <ul class="timeline-details">
+                                <li>Développement web avec HTML, CSS et JavaScript</li>
+                                <li>Création de designs réactifs et intuitifs</li>
+                                <li>Renforcement des pratiques de codage</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <time class="timeline-date">10-2023 – 12-2023</time>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Développeur Front-End</h4>
+                            <p class="timeline-subtitle">YOUNGGOEV · Stage virtuel</p>
+                            <ul class="timeline-details">
+                                <li>Développement web performant avec HTML, CSS et JavaScript</li>
+                                <li>Conceptions centrées utilisateur et responsives</li>
+                                <li>Stage conclu le 18 décembre 2023</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projets Personnels -->
+                <section class="section" id="projects">
+                    <h3><i class="fas fa-folder-open" aria-hidden="true"></i> Projets Personnels</h3>
+
+                    <!-- Projet 1 -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <span class="project-status status-progress">
+                                <i class="fas fa-clock" aria-hidden="true"></i> En cours
+                            </span>
+                            <span class="project-date">2026</span>
+                        </div>
+                        <h4>📋 Application de gestion de tâches</h4>
+                        <p>Application web interactive avec persistance des données via localStorage et interface intuitive.</p>
+                        <div class="project-techs">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">localStorage</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code source</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Démo</a>
+                        </div>
+                    </article>
+
+                    <!-- Projet 2 -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <span class="project-status status-progress">
+                                <i class="fas fa-clock" aria-hidden="true"></i> En cours
+                            </span>
+                            <span class="project-date">2025 – 2026</span>
+                        </div>
+                        <h4>🛒 Plateforme e-commerce</h4>
+                        <p>Plateforme de vente en ligne avec panier, filtres avancés et simulation de paiement.</p>
+                        <div class="project-techs">
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code source</a>
+                        </div>
+                    </article>
+
+                    <!-- Projet 3 -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <span class="project-status status-progress">
+                                <i class="fas fa-clock" aria-hidden="true"></i> En cours
+                            </span>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <h4>📚 Gestion des emprunts de livres</h4>
+                        <p>Application de gestion de bibliothèque : catalogue, adhérents, suivi des emprunts et retours avec notifications.</p>
+                        <div class="project-techs">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code source</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Démo</a>
+                        </div>
+                    </article>
+
+                    <!-- Projet 4 -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <span class="project-status status-progress">
+                                <i class="fas fa-spinner fa-pulse" aria-hidden="true"></i> En cours
+                            </span>
+                            <span class="project-date">2026</span>
+                        </div>
+                        <h4>🎨 Portfolio interactif</h4>
+                        <p>CV en ligne avec thème clair/sombre, animations dynamiques, formulaire de contact et design responsive.</p>
+                        <div class="project-techs">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Font Awesome</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code source</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Démo</a>
+                        </div>
+                    </article>
+                </section>
+            </section>
+        </div>
+
+        <!-- ============================================================
+        FORMULAIRE DE CONTACT
+        ============================================================ -->
+        <section class="contact-section" id="contact">
+            <h3><i class="fas fa-paper-plane" aria-hidden="true"></i> Me contacter</h3>
+            <form id="contactForm" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required />
+                    <span class="error-message" id="nameError" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required />
+                    <span class="error-message" id="emailError" role="alert"></span>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Votre message..." required></textarea>
+                    <span class="error-message" id="messageError" role="alert"></span>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i> Envoyer
+                </button>
+            </form>
+        </section>
+
+        <!-- ============================================================
+        PIED DE PAGE
+        ============================================================ -->
+        <footer class="footer">
+            <div class="footer-left">
+                <p class="copyright">
+                    &copy; <span class="year">2026</span>
+                    <span class="name">Ousmane Niang</span>
+                    <span class="separator">—</span>
+                    Tous droits réservés
+                </p>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/ousmane.niang2@univ-thies.sn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://github.com/ousmane" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.facebook.com/ousmane.niang" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter" title="Twitter">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <button id="backToTop" class="back-to-top" aria-label="Retour en haut">
+                    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+                    <span>Haut</span>
+                </button>
+            </div>
+        </footer>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../javascript/script.js"></script>
+</body>
+</html>
+
