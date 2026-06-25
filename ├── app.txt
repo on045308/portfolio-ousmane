@@ -1,0 +1,41 @@
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Auth/
+│   │   │   │   ├── LoginController.php
+│   │   │   │   ├── RegisterController.php
+│   │   │   │   └── ForgotPasswordController.php
+│   │   │   ├── Admin/
+│   │   │   │   ├── DashboardController.php
+│   │   │   │   ├── RecipeController.php
+│   │   │   │   ├── CategoryController.php
+│   │   │   │   ├── UserController.php
+│   │   │   │   └── CommentController.php
+│   │   │   ├── Front/
+│   │   │   │   ├── HomeController.php
+│   │   │   │   ├── RecipeController.php
+│   │   │   │   ├── CategoryController.php
+│   │   │   │   ├── SearchController.php
+│   │   │   │   └── ContactController.php
+│   │   │   ├── ProfileController.php
+│   │   │   └── FavoriteController.php
+│   │   ├── Middleware/
+│   │   │   ├── AdminMiddleware.php
+│   │   │   └── UserMiddleware.php
+│   │   └── Requests/
+│   │       ├── RecipeRequest.php
+│   │       ├── CategoryRequest.php
+│   │       └── CommentRequest.php
+
+donner moi le role de chaque fichier et dossier
+
+                                                     --->Dossier app/ (racine de l'application)
+
+                                                     --->app/Http/ - Gère toute la logique HTTP
+
+                                                     --->app/Http/ - Gère toute la logique HTTP
+
+                                                       Auth/ - Gestion de l'authentification
+
+---->LoginController.php : Gère la connexion des utilisateurs (affichage formulaire, validation, tentative de connexion, déconnexion)
+  

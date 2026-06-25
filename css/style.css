@@ -212,6 +212,18 @@ body.dark-theme .qr-toggle-btn.active {
     color: white;
 }
 
+/* --- Version sombre pour le bouton PDF --- */
+body.dark-theme .download-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #e8eef5;
+}
+
+body.dark-theme .download-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
 /* ============================================================
    NAVIGATION
    ============================================================ */
@@ -570,6 +582,56 @@ body.dark-theme .qr-toggle-btn.active {
 
 .theme-btn .theme-label {
     display: inline-block;
+}
+
+/* ============================================================
+   BOUTON DE TÉLÉCHARGEMENT PDF (harmonisé avec le thème)
+   ============================================================ */
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    background: var(--theme-btn-bg);
+    border: 1px solid var(--theme-btn-border);
+    border-radius: 50px;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-family: inherit;
+    letter-spacing: 0.3px;
+}
+
+.download-btn:hover {
+    background: var(--theme-btn-hover);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.download-btn:active {
+    transform: scale(0.97);
+}
+
+.download-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.download-btn i {
+    font-size: 1rem;
+    transition: transform 0.4s ease;
+}
+
+.download-btn:hover i {
+    transform: rotate(-10deg) scale(1.1);
 }
 
 /* ============================================================
@@ -1334,6 +1396,12 @@ body.dark-theme .qr-toggle-btn.active {
         width: 100px !important;
         height: 100px !important;
     }
+
+    /* Bouton PDF responsive tablette */
+    .download-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
 }
 
 /* --- Mobiles --- */
@@ -1430,6 +1498,16 @@ body.dark-theme .qr-toggle-btn.active {
         display: none;
     }
     
+    /* Bouton PDF */
+    .download-btn {
+        padding: 0.4rem 0.9rem;
+        font-size: 0.75rem;
+    }
+    
+    .download-btn span {
+        display: none; /* Cache le texte sur mobile, garde l'icône */
+    }
+    
     .project-card {
         padding: 0.8rem 1rem;
     }
@@ -1515,5 +1593,311 @@ body.dark-theme .qr-toggle-btn.active {
     .header-right {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+/* ============================================================
+STYLES POUR L'IMPRESSION / PDF
+============================================================ */
+
+@media print {
+    /* Masquer les éléments non essentiels */
+    .navbar,
+    .theme-btn,
+    .download-btn,
+    .qr-container,
+    .qr-toggle-btn,
+    .qr-wrapper,
+    .back-to-top,
+    .social-links,
+    .cv-notification,
+    .contact-section,
+    .footer-credit,
+    .footer-right .social-links {
+        display: none !important;
+    }
+
+    /* Réinitialisation pour l'impression */
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 11pt !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+    }
+
+    .cv-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        background: white !important;
+    }
+
+    /* Header */
+    .header {
+        background: #0b1a2e !important;
+        color: white !important;
+        padding: 1.5rem 2rem !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .header-info h1 {
+        font-size: 24pt !important;
+        color: white !important;
+    }
+
+    .header-info .subtitle {
+        font-size: 14pt !important;
+        color: #7bb9e0 !important;
+    }
+
+    .badge {
+        background: rgba(43, 140, 190, 0.25) !important;
+        color: #d6e6f5 !important;
+        border-color: rgba(43, 140, 190, 0.3) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        font-size: 8pt !important;
+        padding: 0.15rem 0.7rem !important;
+    }
+
+    .profile-photo {
+        width: 80px !important;
+        height: 80px !important;
+        border: 3px solid var(--accent) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .header-contact {
+        border-top-color: rgba(255, 255, 255, 0.15) !important;
+    }
+
+    .contact-item {
+        color: #d6e6f5 !important;
+        font-size: 9pt !important;
+    }
+
+    .contact-item i {
+        color: #7bb9e0 !important;
+    }
+
+    /* Grille principale */
+    .main-grid {
+        display: block !important;
+    }
+
+    .left-column {
+        display: block !important;
+        width: 35% !important;
+        float: left !important;
+        background: #f4f8fe !important;
+        padding: 1.5rem !important;
+        border-right: 1px solid #e0e8f0 !important;
+        min-height: 500px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .right-column {
+        display: block !important;
+        width: 65% !important;
+        float: right !important;
+        padding: 1.5rem !important;
+        background: white !important;
+    }
+
+    /* Sections */
+    .section {
+        margin-bottom: 1.2rem !important;
+    }
+
+    .section h3 {
+        font-size: 10pt !important;
+        border-bottom: 2px solid var(--accent) !important;
+        color: #1a2a3a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .profile-text {
+        font-size: 9pt !important;
+        line-height: 1.5 !important;
+        color: #1a2a3a !important;
+    }
+
+    /* Timeline */
+    .timeline-item {
+        display: block !important;
+        margin-bottom: 0.8rem !important;
+        padding-left: 0.8rem !important;
+        border-left: 2px solid var(--accent) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .timeline-date {
+        font-size: 8pt !important;
+        font-weight: 600 !important;
+        color: var(--accent) !important;
+        display: block !important;
+        text-align: left !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .timeline-title {
+        font-size: 10pt !important;
+        font-weight: 700 !important;
+        color: #1a2a3a !important;
+        margin: 0.1rem 0 !important;
+    }
+
+    .timeline-subtitle {
+        font-size: 9pt !important;
+        color: #4a6a8a !important;
+    }
+
+    .timeline-details li {
+        font-size: 8.5pt !important;
+        color: #1a2a3a !important;
+    }
+
+    /* Langues */
+    .lang-tag {
+        font-size: 8pt !important;
+        padding: 0.2rem 0.8rem !important;
+        border: 1.5px solid var(--accent) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Compétences */
+    .skill-item {
+        display: block !important;
+        margin-bottom: 0.3rem !important;
+    }
+
+    .skill-item span {
+        font-size: 8.5pt !important;
+        text-align: left !important;
+        display: block !important;
+        margin-bottom: 0.1rem !important;
+    }
+
+    .skill-bar {
+        height: 6px !important;
+        background: #e0e8f0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .skill-progress {
+        background: var(--accent) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Intérêts */
+    .interests {
+        display: block !important;
+    }
+
+    .interest-tag {
+        display: inline-block !important;
+        font-size: 8pt !important;
+        padding: 0.2rem 0.7rem !important;
+        margin: 0.2rem !important;
+        border: 1px solid #e0e8f0 !important;
+        background: white !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Projets */
+    .project-card {
+        padding: 0.8rem 1rem !important;
+        margin-bottom: 0.8rem !important;
+        border: 1px solid #e0e8f0 !important;
+        background: #f8fafc !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        break-inside: avoid !important;
+    }
+
+    .project-card h4 {
+        font-size: 10pt !important;
+        color: #1a2a3a !important;
+    }
+
+    .project-card p {
+        font-size: 8.5pt !important;
+        color: #4a6a8a !important;
+    }
+
+    .tech-tag {
+        font-size: 7pt !important;
+        padding: 0.1rem 0.5rem !important;
+        background: white !important;
+        border: 1px solid #d0d8e0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .project-link {
+        font-size: 8pt !important;
+    }
+
+    /* Footer */
+    .footer {
+        background: #0b1a2e !important;
+        color: white !important;
+        padding: 0.8rem 2rem !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .footer .copyright {
+        font-size: 8pt !important;
+        color: #d6e6f5 !important;
+    }
+
+    .footer .name {
+        color: var(--accent) !important;
+    }
+
+    /* Nettoyage des flottants */
+    .main-grid::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Éviter les coupures */
+    .project-card,
+    .timeline-item,
+    .experience-card {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* Ajustements généraux */
+    .header-grid {
+        display: block !important;
+    }
+
+    .header-right {
+        display: block !important;
+        text-align: right !important;
+    }
+
+    .header-left {
+        display: flex !important;
+        align-items: center !important;
+        gap: 1rem !important;
     }
 }

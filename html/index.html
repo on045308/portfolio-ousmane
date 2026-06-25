@@ -42,16 +42,7 @@
     <!-- ============================================================
     FAVICON
     ============================================================ -->
-    <!-- Favicon avec emoji (solution simple et universelle) -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
-    
-    <!-- Favicon classique (si vous avez les fichiers) -->
-    <!-- 
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-    <link rel="manifest" href="../site.webmanifest">
-    -->
     
     <!-- ============================================================
     GOOGLE FONTS & LIBRAIRIES
@@ -62,13 +53,16 @@
     <!-- QRCode.js (génération du QR) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     
+    <!-- html2pdf.js (téléchargement PDF de qualité) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
     <!-- ============================================================
     FEUILLE DE STYLE PRINCIPALE
     ============================================================ -->
     <link rel="stylesheet" href="../css/style.css" />
     
     <!-- ============================================================
-    DONNÉES STRUCTURÉES JSON-LD (Pour le référencement avancé)
+    DONNÉES STRUCTURÉES JSON-LD
     ============================================================ -->
     <script type="application/ld+json">
     {
@@ -144,7 +138,7 @@
                             <span class="badge"><i class="fab fa-html5" aria-hidden="true"></i> HTML5</span>
                             <span class="badge"><i class="fab fa-css3-alt" aria-hidden="true"></i> CSS3</span>
                             <span class="badge"><i class="fab fa-js" aria-hidden="true"></i> JavaScript</span>
-                            <span class="badge"><i class="fab fa-react" aria-hidden="true"></i> React</span>
+                            
                             <span class="badge"><i class="fab fa-bootstrap" aria-hidden="true"></i> Bootstrap</span>
                             <span class="badge"><i class="fas fa-database" aria-hidden="true"></i> Base de données</span>
                         </div>
@@ -161,6 +155,12 @@
                             <i class="fas fa-qrcode" aria-hidden="true"></i>
                         </button>
                     </div>
+
+                    <!-- Bouton de téléchargement PDF -->
+                    <button onclick="downloadPDF()" class="download-btn" aria-label="Télécharger le CV en PDF">
+                        <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                        <span>PDF</span>
+                    </button>
 
                     <!-- Bouton thème -->
                     <button id="themeToggle" class="theme-btn" aria-label="Basculer le thème">
@@ -290,7 +290,7 @@
                         <div class="skill-item">
                             <span>Bootstrap</span>
                             <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                <div class="skill-progress" style="width: 40%;"></div>
+                                <div class="skill-progress" style="width: 75%;"></div>
                             </div>
                         </div>
                         <div class="skill-item">
@@ -362,13 +362,28 @@
                             </ul>
                         </div>
                     </div>
+
+                    <!-- Projet universitaire : Réseaux Télécoms -->
+                    <div class="timeline-item">
+                        <time class="timeline-date">2025</time>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">Projet universitaire : Simulation réseau</h4>
+                            <p class="timeline-subtitle">Université Iba Der Thiam de Thiès</p>
+                            <ul class="timeline-details">
+                                <li>🌐 Simulation d'un réseau d'entreprise avec Cisco Packet Tracer</li>
+                                <li>🔄 Configuration des protocoles DHCP, DNS, HTTP et FTP</li>
+                                <li>🔒 Mise en place de la sécurité réseau (ACL, VLAN, NAT)</li>
+                                <li>📡 Étude des performances réseau et optimisation</li>
+                            </ul>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Projets Personnels -->
                 <section class="section" id="projects">
                     <h3><i class="fas fa-folder-open" aria-hidden="true"></i> Projets Personnels</h3>
 
-                    <!-- Projet 1 -->
+                    <!-- Projet 1 : Application de gestion de tâches -->
                     <article class="project-card">
                         <div class="project-header">
                             <span class="project-status status-progress">
@@ -390,7 +405,7 @@
                         </div>
                     </article>
 
-                    <!-- Projet 2 -->
+                    <!-- Projet 2 : Plateforme e-commerce -->
                     <article class="project-card">
                         <div class="project-header">
                             <span class="project-status status-progress">
@@ -411,7 +426,7 @@
                         </div>
                     </article>
 
-                    <!-- Projet 3 -->
+                    <!-- Projet 3 : Gestion des emprunts de livres -->
                     <article class="project-card">
                         <div class="project-header">
                             <span class="project-status status-progress">
@@ -433,7 +448,52 @@
                         </div>
                     </article>
 
-                    <!-- Projet 4 -->
+                    <!-- Projet 4 : 🗳️ Gestion d'élection -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <span class="project-status status-progress">
+                                <i class="fas fa-clock" aria-hidden="true"></i> En cours
+                            </span>
+                            <span class="project-date">2025 – 2026</span>
+                        </div>
+                        <h4>🗳️ Système de Gestion d'Élection</h4>
+                        <p>Plateforme de gestion d'élections en ligne : gestion des candidats, des électeurs, vote sécurisé et résultats en temps réel avec visualisation graphique.</p>
+                        <div class="project-techs">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">JavaScript</span>
+                            
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code source</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Démo</a>
+                        </div>
+                    </article>
+
+                    <!-- Projet 5 : 📅 Gestion des conflits de salles -->
+                    <article class="project-card">
+                        <div class="project-header">
+                            <span class="project-status status-progress">
+                                <i class="fas fa-clock" aria-hidden="true"></i> En cours
+                            </span>
+                            <span class="project-date">2026</span>
+                        </div>
+                        <h4>📅 Gestion des conflits de salles</h4>
+                        <p>Application de gestion des réservations de salles avec détection automatique des conflits d'horaires, visualisation calendrier et notifications en temps réel.</p>
+                        <div class="project-techs">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JavaScript</span>
+                            
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code source</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Démo</a>
+                        </div>
+                    </article>
+
+                    <!-- Projet 6 : Portfolio interactif -->
                     <article class="project-card">
                         <div class="project-header">
                             <span class="project-status status-progress">
@@ -442,7 +502,7 @@
                             <span class="project-date">2026</span>
                         </div>
                         <h4>🎨 Portfolio interactif</h4>
-                        <p>CV en ligne avec thème clair/sombre, animations dynamiques, formulaire de contact et design responsive.</p>
+                        <p>CV en ligne avec thème clair/sombre, animations dynamiques, formulaire de contact, QR Code et design responsive.</p>
                         <div class="project-techs">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
@@ -526,4 +586,3 @@
     <script src="../javascript/script.js"></script>
 </body>
 </html>
-

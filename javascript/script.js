@@ -3,6 +3,66 @@
  * Module: Développement Web - Licence 2 Informatique
  */
 
+// ════════════════════════════════════════════════════════════════
+// FONCTION DE TÉLÉCHARGEMENT PDF (déclarée en dehors de DOMContentLoaded)
+// ════════════════════════════════════════════════════════════════
+
+function downloadPDF() {
+    const element = document.getElementById('cvContent');
+    const btn = document.querySelector('.download-btn');
+    
+    if (!element) {
+        console.warn('⚠️ Élément cvContent non trouvé');
+        // Afficher une alerte simple
+        alert('Erreur : impossible de trouver le contenu du CV.');
+        return;
+    }
+    
+    // Désactiver le bouton pendant la génération
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Génération...';
+    }
+    
+    // Options optimisées pour un PDF professionnel
+    const opt = {
+        margin:        [15, 15, 15, 15],
+        filename:     'CV_Ousmane_Niang.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { 
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            allowTaint: true,
+            backgroundColor: '#ffffff',
+            letterRendering: true
+        },
+        jsPDF:        { 
+            unit: 'mm', 
+            format: 'a4', 
+            orientation: 'portrait' 
+        },
+        pagebreak:    { mode: 'avoid-all' }
+    };
+    
+    // Générer le PDF
+    html2pdf().set(opt).from(element).save().then(function() {
+        // Réactiver le bouton
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-file-pdf" aria-hidden="true"></i> PDF';
+        }
+        console.log('✅ PDF téléchargé avec succès !');
+    }).catch(function(err) {
+        console.error('Erreur lors de la génération du PDF:', err);
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-file-pdf" aria-hidden="true"></i> PDF';
+        }
+        alert('❌ Erreur lors de la génération du PDF. Veuillez réessayer.');
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
     // ============================================================
@@ -55,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (label) label.textContent = 'Thème clair';
                 localStorage.setItem('cv-theme', 'dark');
                 // Mettre à jour le QR Code si visible
-                if (qrVisible) {
+                if (typeof qrVisible !== 'undefined' && qrVisible) {
                     setTimeout(updateQRColors, 50);
                 }
             } else {
@@ -63,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (label) label.textContent = 'Thème sombre';
                 localStorage.setItem('cv-theme', 'light');
                 // Mettre à jour le QR Code si visible
-                if (qrVisible) {
+                if (typeof qrVisible !== 'undefined' && qrVisible) {
                     setTimeout(updateQRColors, 50);
                 }
             }
@@ -297,26 +357,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // ════════════════════════════════════════════════════════════
     // 🔽🔽🔽 MODIFIEZ CETTE LIGNE AVEC VOTRE URL RÉELLE 🔽🔽🔽
     // ════════════════════════════════════════════════════════════
-    // 
-    // 📍 Option 1 : UTILISER VOTRE ADRESSE IP LOCALE
-    //    (si vous êtes sur le même réseau Wi-Fi que votre téléphone)
-    //    Exemple : "http://192.168.1.10:5500"
-    //    Pour trouver votre IP : ipconfig (Windows) / ifconfig (Mac/Linux)
-    //
-    // 🌐 Option 2 : UTILISER UNE URL PUBLIQUE
-    //    (si vous hébergez votre CV en ligne)
-    //    Exemple : "https://votre-site.com/mon-cv"
-    //
-    // ⚠️ Attention : "127.0.0.1" ou "localhost" ne fonctionnent PAS
-    //    depuis un téléphone ! Ne les utilisez pas.
-    // ════════════════════════════════════════════════════════════
-
     const QR_CODE_URL = "http://192.168.1.10:5500"; // ⬅️ REMPLACEZ PAR VOTRE URL
 
-    // On utilise l'URL configurable au lieu de window.location.href
     const cvUrl = QR_CODE_URL;
 
-    // Générer le QR Code
     if (typeof QRCode !== 'undefined' && qrContainer) {
         new QRCode(qrContainer, {
             text: cvUrl,
@@ -327,7 +371,6 @@ document.addEventListener('DOMContentLoaded', function() {
             correctLevel: QRCode.CorrectLevel.H
         });
 
-        // Toggle affichage
         if (qrToggleBtn) {
             qrToggleBtn.addEventListener('click', function() {
                 qrVisible = !qrVisible;
@@ -348,7 +391,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.warn('⚠️ QRCode.js non chargé ou conteneur manquant');
     }
 
-    // Mettre à jour les couleurs du QR selon le thème
     function updateQRColors() {
         if (!qrContainer) return;
         const isDark = document.body.classList.contains('dark-theme');
@@ -356,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const lightColor = isDark ? '#1a2644' : '#ffffff';
         qrContainer.innerHTML = '';
         new QRCode(qrContainer, {
-            text: cvUrl, // On utilise bien l'URL configurable
+            text: cvUrl,
             width: 120,
             height: 120,
             colorDark: darkColor,
@@ -378,6 +420,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('   🔙 Bouton retour en haut');
     console.log('   📝 Formulaire de contact avec validation');
     console.log('   📱 QR Code scannable (URL : ' + cvUrl + ')');
+    console.log('   📄 Téléchargement PDF (cliquez sur le bouton PDF)');
     console.log('   🎨 Design responsive et moderne');
 
 });
